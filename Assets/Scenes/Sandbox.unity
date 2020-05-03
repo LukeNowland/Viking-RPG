@@ -282,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 6097561023537103140, guid: c5698fe4e979c4e0c91ff0d741868c5c,
         type: 3}
       propertyPath: m_Name
-      value: Enviroment
+      value: Sandbox Enviroment
       objectReference: {fileID: 0}
     - target: {fileID: 6097561023537103147, guid: c5698fe4e979c4e0c91ff0d741868c5c,
         type: 3}

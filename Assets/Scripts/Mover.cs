@@ -15,10 +15,7 @@ public class Mover : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            MoveToCursor();
-        }
+        MoveToCursor();
         UpdateAnimation();
     }
 
@@ -31,12 +28,15 @@ public class Mover : MonoBehaviour
 
     private void MoveToCursor()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
-        bool hasHit = Physics.Raycast(ray, out hitInfo);
-        if (hasHit)
+        if (Input.GetMouseButton(0))
         {
-            agent.destination = hitInfo.point;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            bool hasHit = Physics.Raycast(ray, out hitInfo);
+            if (hasHit)
+            {
+                agent.destination = hitInfo.point;
+            }
         }
     }
 }

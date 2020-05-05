@@ -30,6 +30,12 @@ namespace RPG.Movement
         public void MoveTo(Vector3 destination)
         {
             agent.destination = destination;
+            agent.isStopped = false;
+        }
+
+        public void StopMoving()
+        {
+            agent.isStopped = true;
         }
     }
 }

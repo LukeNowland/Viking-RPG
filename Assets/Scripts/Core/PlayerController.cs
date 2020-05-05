@@ -9,14 +9,11 @@ namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
-
-        // bool canInteract;
-
+        
         void Update()
         {
             if (InteractedWithCombat()) return;
             if (InteractedWithMovement()) return;
-            print("nothing to do");
         }
 
         private bool InteractedWithCombat()
@@ -44,7 +41,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().MoveTo(hitInfo.point);
+                    GetComponent<Mover>().StartMoveAction(hitInfo.point);
                 }
                 return true;
             }

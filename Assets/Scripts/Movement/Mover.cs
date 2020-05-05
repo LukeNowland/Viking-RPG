@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Movement
 {
@@ -27,9 +29,15 @@ namespace RPG.Movement
             animator.SetFloat("forwardSpeed", localVelocity.z);
         }
 
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<ActionScheduler>().StartAction(this);
+            GetComponent<Fighter>().CancelTarget();
+            MoveTo(destination);
+        }
         public void MoveTo(Vector3 destination)
         {
-            agent.destination = destination;
+            agent.destination = destination;    
             agent.isStopped = false;
         }
 

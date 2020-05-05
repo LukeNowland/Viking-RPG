@@ -140,6 +140,11 @@ PrefabInstance:
       propertyPath: weaponRange
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 972680136628164686, guid: b6e863a09fa5a47b4832225b2e616f42,
+        type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2805807148964037336, guid: b6e863a09fa5a47b4832225b2e616f42,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -358,26 +363,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2112654243873472011, guid: a9797ba8cfe294af7b25c94a3fdf7931,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.58878285
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112654243873472011, guid: a9797ba8cfe294af7b25c94a3fdf7931,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.07472383
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112654243873472011, guid: a9797ba8cfe294af7b25c94a3fdf7931,
-        type: 3}
-      propertyPath: m_Height
-      value: 5.0317554
-      objectReference: {fileID: 0}
-    - target: {fileID: 2112654243873472011, guid: a9797ba8cfe294af7b25c94a3fdf7931,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 1.6451025
-      objectReference: {fileID: 0}
     - target: {fileID: 6735820796804088215, guid: a9797ba8cfe294af7b25c94a3fdf7931,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -433,15 +418,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6735820796804088215, guid: a9797ba8cfe294af7b25c94a3fdf7931,
+    - target: {fileID: 8981855147962522660, guid: a9797ba8cfe294af7b25c94a3fdf7931,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 9.3344
-      objectReference: {fileID: 0}
-    - target: {fileID: 6735820796804088215, guid: a9797ba8cfe294af7b25c94a3fdf7931,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.1845
+      propertyPath: health
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9797ba8cfe294af7b25c94a3fdf7931, type: 3}

@@ -47,6 +47,12 @@ namespace RPG.Combat
             }
         }
 
+        //Animation Event
+        void Hit()
+        {
+            target.GetComponent<Health>().TakeDamage(10f);
+        }
+
         public void Attack(CombatTarget combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
@@ -61,12 +67,6 @@ namespace RPG.Combat
         private bool GetIsInRange()
         {
             return Vector3.Distance(transform.position, target.position) < weaponRange;
-        }
-
-        //Animation Event
-        void Hit()
-        {
-
         }
     }
 }

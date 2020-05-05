@@ -7,7 +7,7 @@ using RPG.Core;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
         NavMeshAgent agent;
         Animator animator;
@@ -22,6 +22,12 @@ namespace RPG.Movement
             UpdateAnimation();
         }
 
+        public void StartMoveAction(Vector3 destination)
+        {
+            GetComponent<ActionScheduler>().StartAction(this);
+            MoveTo(destination);
+        }
+
         private void UpdateAnimation()
         {
             Vector3 velocity = agent.velocity;
@@ -29,19 +35,13 @@ namespace RPG.Movement
             animator.SetFloat("forwardSpeed", localVelocity.z);
         }
 
-        public void StartMoveAction(Vector3 destination)
-        {
-            GetComponent<ActionScheduler>().StartAction(this);
-            GetComponent<Fighter>().CancelTarget();
-            MoveTo(destination);
-        }
         public void MoveTo(Vector3 destination)
         {
             agent.destination = destination;    
             agent.isStopped = false;
         }
 
-        public void StopMoving()
+        public void Cancel()
         {
             agent.isStopped = true;
         }

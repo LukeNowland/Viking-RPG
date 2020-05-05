@@ -6,7 +6,7 @@ using RPG.Core;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour
+    public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float weaponRange = 2f;
 
@@ -28,7 +28,7 @@ namespace RPG.Combat
             }
             else
             {
-                mover.StopMoving();
+                mover.Cancel();
             }
         }
 
@@ -38,9 +38,10 @@ namespace RPG.Combat
             target = combatTarget.transform;
         }
 
-        public void CancelTarget()
+        public void Cancel()
         {
             target = null;
+            print("Cancelling " + this);
         }
 
         private bool GetIsInRange()

@@ -12,10 +12,12 @@ namespace RPG.Combat
 
         Transform target = null;
         Mover mover = null;
+        Animator animator = null;
 
         private void Start()
         {
             mover = GetComponent<Mover>();
+            animator = GetComponent<Animator>();
         }
 
         private void Update()
@@ -29,7 +31,13 @@ namespace RPG.Combat
             else
             {
                 mover.Cancel();
+                AttackBehaviour();
             }
+        }
+
+        private void AttackBehaviour()
+        {
+            animator.SetTrigger("attack");
         }
 
         public void Attack(CombatTarget combatTarget)
@@ -41,12 +49,17 @@ namespace RPG.Combat
         public void Cancel()
         {
             target = null;
-            print("Cancelling " + this);
         }
 
         private bool GetIsInRange()
         {
             return Vector3.Distance(transform.position, target.position) < weaponRange;
+        }
+
+        //Animation Event
+        void Hit()
+        {
+
         }
     }
 }

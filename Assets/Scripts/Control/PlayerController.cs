@@ -4,14 +4,24 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Combat;
 using System;
+using RPG.Core;
 
 namespace RPG.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        Fighter fighter;
+        Health health;
+
+        private void Start()
+        {
+            fighter = GetComponent<Fighter>();
+            health = GetComponent<Health>();
+        }
 
         void Update()
         {
+            if (health.IsDead()) return;
             if (InteractedWithCombat()) return;
             if (InteractedWithMovement()) return;
         }
@@ -23,12 +33,10 @@ namespace RPG.Control
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
-
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject)) continue;
-
+                if (!fighter.CanAttack(target.gameObject)) continue;
                 if (Input.GetMouseButtonDown(0))
                 {
-                    GetComponent<Fighter>().Attack(target.gameObject);
+                    fighter.Attack(target.gameObject);
                 }
                 return true;
             }

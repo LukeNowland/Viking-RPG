@@ -19,6 +19,8 @@ namespace RPG.Movement
         }
         void Update()
         {
+            agent.enabled = !GetComponent<Health>().IsDead();
+
             UpdateAnimation();
         }
 

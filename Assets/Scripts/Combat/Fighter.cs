@@ -14,7 +14,7 @@ namespace RPG.Combat
         Health target = null;
         Mover mover = null;
         Animator animator = null;
-        float timeSinceLastAttack = 0f;
+        float timeSinceLastAttack = Mathf.Infinity;
 
         private void Start()
         {

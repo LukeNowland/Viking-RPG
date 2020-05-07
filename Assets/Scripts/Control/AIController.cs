@@ -14,14 +14,14 @@ namespace RPG.Control
         GameObject player;
         Fighter fighter;
         Health health;
-        Vector3 startPos;
+        Vector3 guardPos;
 
         private void Start()
         {
             player = GameObject.FindWithTag("Player");
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
-            startPos = transform.position;
+            guardPos = transform.position;
         }
 
         private void Update()
@@ -33,8 +33,7 @@ namespace RPG.Control
             }
             else
             {
-                fighter.Cancel();
-                GetComponent<Mover>().StartMoveAction(startPos);
+                GetComponent<Mover>().StartMoveAction(guardPos);
             }
         }
 
@@ -42,6 +41,12 @@ namespace RPG.Control
         {
             var playerDistance = Vector3.Distance(transform.position, player.transform.position);
             return playerDistance <= chaseDistance;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, chaseDistance);
         }
     }
 }

@@ -19,6 +19,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7126823489668443201, guid: b6e863a09fa5a47b4832225b2e616f42,
+        type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 87428160848141987, guid: b6e863a09fa5a47b4832225b2e616f42,
         type: 3}
       propertyPath: m_IsActive
@@ -57,17 +62,17 @@ PrefabInstance:
     - target: {fileID: 2805807148964037336, guid: b6e863a09fa5a47b4832225b2e616f42,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2805807148964037336, guid: b6e863a09fa5a47b4832225b2e616f42,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2805807148964037336, guid: b6e863a09fa5a47b4832225b2e616f42,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2805807148964037336, guid: b6e863a09fa5a47b4832225b2e616f42,
         type: 3}
@@ -103,6 +108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493153124391381129, guid: b6e863a09fa5a47b4832225b2e616f42,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5.66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6e863a09fa5a47b4832225b2e616f42, type: 3}

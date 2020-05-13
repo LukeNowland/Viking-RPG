@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
+using UnityEngine.AI;
 using UnityEngine;
 
 namespace RPG.Control
@@ -15,11 +16,13 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath = null;
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 1f;
+        [Range(0,1)] [SerializeField] float patrolSpeedFraction = .3f;
 
         GameObject player;
         Fighter fighter;
         Mover mover;
         Health health;
+        NavMeshAgent agent;
         
         Vector3 guardPos;
         float timeSinceLastSawPlayer = Mathf.Infinity;
@@ -51,7 +54,6 @@ namespace RPG.Control
             {
                 PatrolBehaviour();
             }
-
             UpdateTimers();
         }
 
@@ -63,6 +65,7 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            
             timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
         }
@@ -88,7 +91,7 @@ namespace RPG.Control
 
             if (timeSinceArrivedAtWaypoint > waypointDwellTime)
             {
-            mover.StartMoveAction(nextPos);
+            mover.StartMoveAction(nextPos, patrolSpeedFraction);
             }
         }
 

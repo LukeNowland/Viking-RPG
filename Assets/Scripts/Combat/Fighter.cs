@@ -80,6 +80,7 @@ namespace RPG.Combat
             animator.ResetTrigger("attack");
             animator.SetTrigger("stopAttacking");
             target = null;
+            mover.Cancel();
         }
 
         private bool GetIsInRange()

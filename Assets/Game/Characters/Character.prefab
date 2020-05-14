@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc982d339cb7945c1be0fb79a38b4fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 5.66
 --- !u!95 &2805807148973780958
 Animator:
   serializedVersion: 3
@@ -79,7 +80,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.29
   m_Speed: 5.66
-  m_Acceleration: 15
+  m_Acceleration: 25
   avoidancePriority: 50
   m_AngularSpeed: 3000
   m_StoppingDistance: 0

@@ -9,7 +9,8 @@ namespace RPG.Cinematics
 {
     public class CinematicControlRemover : MonoBehaviour
     {
-        GameObject player;
+        GameObject player = null;
+
         private void Start()
         {
             player = GameObject.FindWithTag("Player");

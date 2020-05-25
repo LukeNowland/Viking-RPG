@@ -29,7 +29,10 @@ namespace RPG.Combat
 
         private void SpawnWeapon()
         {
-            var spawnedWeapon = Instantiate(weaponPrefab, handTransform.position, Quaternion.identity);
+            if (weaponPrefab && handTransform)
+            {
+                var spawnedWeapon = Instantiate(weaponPrefab, handTransform);
+            }
         }
 
         private void Update()
@@ -76,7 +79,7 @@ namespace RPG.Combat
         {
             if (combatTarget == null) return false;
             var targetToTest = combatTarget.GetComponent<Health>();
-            return  targetToTest != null && !targetToTest.IsDead();
+            return targetToTest != null && !targetToTest.IsDead();
         }
 
         public void Attack(GameObject combatTarget)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Saving;
+using System;
 
 namespace RPG.Core
 {
@@ -46,6 +47,11 @@ namespace RPG.Core
             {
                 HandleDeath();
             }
+        }
+
+        internal void TakeDamage(object weaponDamage)
+        {
+            throw new NotImplementedException();
         }
     }
 }

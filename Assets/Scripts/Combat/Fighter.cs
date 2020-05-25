@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using System;
 
 namespace RPG.Combat
 {
@@ -10,6 +11,9 @@ namespace RPG.Combat
     {
         [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeBetweenAttacks = 2f;
+        [SerializeField] float weaponDamage = 10f;
+        [SerializeField] GameObject weaponPrefab = null;
+        [SerializeField] Transform handTransform = null;
 
         Health target = null;
         Mover mover = null;
@@ -20,6 +24,12 @@ namespace RPG.Combat
         {
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
+            SpawnWeapon();
+        }
+
+        private void SpawnWeapon()
+        {
+            var spawnedWeapon = Instantiate(weaponPrefab, handTransform.position, Quaternion.identity);
         }
 
         private void Update()
@@ -59,7 +69,7 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(10f);
+            target.TakeDamage(weaponDamage);
         }
 
         public bool CanAttack(GameObject combatTarget)

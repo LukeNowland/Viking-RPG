@@ -14,6 +14,7 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = 10f;
         [SerializeField] GameObject weaponPrefab = null;
         [SerializeField] Transform handTransform = null;
+        [SerializeField] AnimatorOverrideController weaponOverride = null;
 
         Health target = null;
         Mover mover = null;
@@ -32,6 +33,7 @@ namespace RPG.Combat
             if (weaponPrefab && handTransform)
             {
                 var spawnedWeapon = Instantiate(weaponPrefab, handTransform);
+                animator.runtimeAnimatorController = weaponOverride;
             }
         }
 

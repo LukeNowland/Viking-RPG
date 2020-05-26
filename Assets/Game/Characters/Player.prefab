@@ -55,6 +55,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7797816316755812082, guid: 0d1b0b1e44c0a47e48440f5682d798e5,
         type: 3}
+    - target: {fileID: 972680136628164686, guid: b6e863a09fa5a47b4832225b2e616f42,
+        type: 3}
+      propertyPath: weaponOverride
+      value: 
+      objectReference: {fileID: 22100000, guid: afeb50597a9af4dc6a9fc43d7a24f7a6,
+        type: 2}
     - target: {fileID: 2540908194888652564, guid: b6e863a09fa5a47b4832225b2e616f42,
         type: 3}
       propertyPath: uniqueIdentifier

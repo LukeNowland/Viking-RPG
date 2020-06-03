@@ -1872,6 +1872,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.022319794
       objectReference: {fileID: 0}
+    - target: {fileID: 7877179855587525607, guid: 08083c2b62b824cab8bc09ea72c27846,
+        type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c0eb6ab54b4a44d0ad42c5cde65a736,
+        type: 2}
     - target: {fileID: 7974393529643492685, guid: 08083c2b62b824cab8bc09ea72c27846,
         type: 3}
       propertyPath: m_Alpha

@@ -602,7 +602,7 @@ Transform:
   - {fileID: 5286283}
   - {fileID: 301506923}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &394715763
 GameObject:
@@ -635,7 +635,7 @@ Transform:
   - {fileID: 235768768}
   - {fileID: 1895719400}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &426105482 stripped
 Transform:
@@ -806,6 +806,85 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1001 &675631923
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2126127466822563764, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126127466822563764, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 917258364}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.885273
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.415369
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553554402131196052, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731358739311810946, guid: 724cdef7e81b8439ca8a239c18906f22,
+        type: 3}
+      propertyPath: m_Name
+      value: Arrow Projectile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 724cdef7e81b8439ca8a239c18906f22, type: 3}
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 5990224269587445196, guid: 08083c2b62b824cab8bc09ea72c27846,
@@ -1276,7 +1355,7 @@ Transform:
   - {fileID: 254297781}
   - {fileID: 958208339}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1814112207
 GameObject:
@@ -1307,7 +1386,7 @@ Transform:
   m_Children:
   - {fileID: 2120021104}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1895719399
 PrefabInstance:

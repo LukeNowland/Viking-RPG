@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4e56f12fbc04c7fa2edd4c4b85be38, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  animatorOverride: {fileID: 22100000, guid: afeb50597a9af4dc6a9fc43d7a24f7a6, type: 2}
+  animatorOverride: {fileID: 22100000, guid: ca2481246768e47578e884acc2ecca07, type: 2}
   equippedPrefab: {fileID: 7797816316755812082, guid: 0d1b0b1e44c0a47e48440f5682d798e5,
     type: 3}
   weaponDamage: 10
   weaponRange: 2
+  isRightHanded: 1
+  projectile: {fileID: 0}

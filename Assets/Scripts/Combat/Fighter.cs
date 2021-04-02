@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
-using System;
+using RPG.Resources;
+using RPG.Saving;
+using RPG.Stats;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
+
     {
         [SerializeField] float timeBetweenAttacks = 2f;
         [SerializeField] Transform rightHandTransform = null;
@@ -15,22 +19,26 @@ namespace RPG.Combat
         [SerializeField] Weapon defaultWeapon = null;
 
         Health target = null;
-        Mover mover = null;
-        Animator animator = null;
         float timeSinceLastAttack = Mathf.Infinity;
         Weapon currentWeapon = null;
 
         private void Start()
         {
-            mover = GetComponent<Mover>();
-            animator = GetComponent<Animator>();
-            EquipWeapon(defaultWeapon);
+            if (currentWeapon == null)
+            {
+                EquipWeapon(defaultWeapon);
+            }
         }
 
         public void EquipWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
-            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+            weapon.Spawn(rightHandTransform, leftHandTransform, GetComponent<Animator>());
+        }
+
+        public Health GetTarget()
+        {
+            return target;
         }
 
         private void Update()
@@ -41,11 +49,11 @@ namespace RPG.Combat
 
             if (!GetIsInRange())
             {
-                mover.MoveTo(target.transform.position, 1f);
+                GetComponent<Mover>().MoveTo(target.transform.position, 1f);
             }
             else
             {
-                mover.Cancel();
+                GetComponent<Mover>().Cancel();
                 AttackBehaviour();
             }
         }
@@ -62,22 +70,30 @@ namespace RPG.Combat
 
         private void TriggerAttack()
         {
-            animator.ResetTrigger("stopAttacking");
-            animator.SetTrigger("attack");
+            GetComponent<Animator>().ResetTrigger("stopAttacking");
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
         //Animation Event
         void Hit()
         {
             if (target == null) return;
+
+            float damage =  GetComponent<BaseStats>().GetStat(Stat.Damage);
+
             if (currentWeapon.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             }
             else
             {
-                target.TakeDamage(currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
             }
+        }
+
+        void Shoot()
+        {
+            Hit();
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -95,15 +111,35 @@ namespace RPG.Combat
 
         public void Cancel()
         {
-            animator.ResetTrigger("attack");
-            animator.SetTrigger("stopAttacking");
+            GetComponent<Animator>().ResetTrigger("attack");
+            GetComponent<Animator>().SetTrigger("stopAttacking");
             target = null;
-            mover.Cancel();
+            GetComponent<Mover>().Cancel();
         }
 
         private bool GetIsInRange()
         {
             return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
+        }
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
+        }
+
+        public IEnumerable<float> GetAdditiveModifier(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetDamage();
+            }
         }
     }
 }

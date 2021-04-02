@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using RPG.Core;
+using System;
 using UnityEngine;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
@@ -9,9 +10,13 @@ namespace RPG.Combat
     {
         [SerializeField] float speed = 5f;
         [SerializeField] bool isHoming = false;
+        [SerializeField] GameObject hitEffect = null;
+        [SerializeField] GameObject[] destroyOnHit = null;
 
         Health target = null;
+        GameObject instigator = null;
         float damage = 0;
+        float maxLifeTime = 3f;
 
         private void Start()
         {
@@ -32,10 +37,12 @@ namespace RPG.Combat
             }
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
+            Destroy(gameObject, maxLifeTime);
         }
 
         private Vector3 GetAimLocation()
@@ -47,13 +54,25 @@ namespace RPG.Combat
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<Health>() != target)
+            if (other.GetComponent<Health>() != target) return;
+            if (target.IsDead()) return;
+            target.TakeDamage(instigator, damage);
+            speed = 0;
+
+            if (hitEffect != null)
             {
-                Destroy(gameObject, 2f);
-                return;
+                GameObject newImpact = Instantiate(hitEffect, GetAimLocation(), transform.rotation) as GameObject;
             }
-            target.TakeDamage(damage);
-            Destroy(gameObject);
+
+            DestroyProjectile();
+        }
+
+        private void DestroyProjectile()
+        {
+            foreach (GameObject toDestroy in destroyOnHit)
+            {
+                Destroy(toDestroy);
+            }
         }
     }
 }

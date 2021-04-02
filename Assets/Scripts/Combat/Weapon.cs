@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using RPG.Core;
+using System;
 using UnityEngine;
+using RPG.Resources;
 
 namespace RPG.Combat
 {
@@ -20,16 +20,23 @@ namespace RPG.Combat
 
         public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
-            DestroyOldWeapon(rightHand,leftHand);
+            DestroyOldWeapon(rightHand, leftHand);
             if (equippedPrefab != null)
             {
                 Transform handTransform = GetTransform(rightHand, leftHand);
                 GameObject weapon = Instantiate(equippedPrefab, handTransform) as GameObject;
                 weapon.name = weaponName;
             }
+
+            var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
+
             if (animatorOverride != null)
             {
                 animator.runtimeAnimatorController = animatorOverride;
+            }
+            else if (overrideController != null)
+            {
+                animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
             }
         }
 
@@ -56,13 +63,13 @@ namespace RPG.Combat
 
         public bool HasProjectile()
         {
-            return projectile != null; 
+            return projectile != null;
         }
 
-        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
+        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instagator, float calculatedDamage)
         {
             var newProjectile = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
-            newProjectile.SetTarget(target, weaponDamage);
+            newProjectile.SetTarget(target, instagator, calculatedDamage);
         }
 
         public float GetDamage()

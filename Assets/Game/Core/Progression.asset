@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42bb97c3592084f8489dc1cd8484bd88, type: 3}
+  m_Name: Progression
+  m_EditorClassIdentifier: 
+  progressionCharacterClasses:
+  - className: Player
+    characterClass: 0
+    progressionStats:
+    - statName: Health
+      stat: 0
+      levels:
+      - 45
+      - 60
+      - 100
+      - 150
+    - statName: Experience Reward
+      stat: 1
+      levels:
+      - 10
+      - 20
+      - 40
+      - 80
+    - statName: Experience To Level Up
+      stat: 2
+      levels:
+      - 20
+      - 35
+      - 55
+      - 85
+    - statName: Damage
+      stat: 3
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+  - className: Grunt
+    characterClass: 1
+    progressionStats:
+    - statName: Health
+      stat: 0
+      levels:
+      - 40
+      - 65
+      - 100
+      - 150
+    - statName: Experience Reward
+      stat: 1
+      levels:
+      - 10
+      - 20
+      - 40
+      - 80
+    - statName: Experience To Level Up
+      stat: 2
+      levels:
+      - 40
+      - 80
+      - 150
+      - 290
+    - statName: Damage
+      stat: 3
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
+  - className: Archer
+    characterClass: 3
+    progressionStats:
+    - statName: Health
+      stat: 0
+      levels:
+      - 40
+      - 65
+      - 100
+      - 150
+    - statName: Experience Reward
+      stat: 1
+      levels:
+      - 10
+      - 20
+      - 40
+      - 80
+    - statName: Experience To Level Up
+      stat: 2
+      levels:
+      - 40
+      - 80
+      - 150
+      - 290
+    - statName: Damage
+      stat: 3
+      levels:
+      - 1
+      - 2
+      - 3
+      - 4
